@@ -14,4 +14,4 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let marker = L.marker([34.0709, -118.444]).addTo(map)
 		.bindPopup('Math Sciences 4328 aka the Technology Sandbox<br> is the lab where I work in ')
 		.openPopup();
-let marker2 = L.marker([34.05, -118.444]).addTo(map)
+let marker2 = L.marker([34.1, -118.444]).addTo(map)

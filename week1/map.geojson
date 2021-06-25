@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"nevada","color":"red"},"geometry":{"type":"Point","coordinates":[-117.0703125,37.71859032558816]}},{"type":"Feature","properties":{"name":"ontario","color":"blue"},"geometry":{"type":"Point","coordinates":[-86.1328125,50.51342652633956]}}]}
