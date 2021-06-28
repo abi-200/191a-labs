@@ -4,7 +4,7 @@ html, body {
 
  body {
      display: grid;
-     grid-template-rows: .1fr .30fr .60fr .05fr;
+     grid-template-rows: .1fr .40fr .60fr .05fr;
      grid-template-columns: 1fr;
      grid-template-areas: "header" "main" "map"  "footer";
      justify-content: center;
@@ -20,27 +20,27 @@ html, body {
 .main {
     display: grid;
     grid-area: main;
-    background-color: aqua;
+    background-color:palevioletred;
 }
 
 #map {
     grid-area: map;
     height: 70vh;
-    color:wheat;
+    color:rgb(74, 38, 83);
 }
 
 #footer {
     grid-area: footer;
 }
 body{
-    background-color: slateblue;
+    background-color:rgb(226, 214, 236);
 }
 
 header{
-    color:red;
-    background-color: silver;
+    color:rgb(212, 62, 112);
+    background-color: rgb(229, 196, 238);
 }
 
 #footer{
-    background-color:thistle;
+    background-color:rgb(100, 43, 100);
 }
