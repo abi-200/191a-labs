@@ -25,7 +25,7 @@ html, body {
 
 #map {
     grid-area: map;
-    height: 70vh;
+    height: 50vh;
     color:rgb(74, 38, 83);
 }
 
