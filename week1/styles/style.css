@@ -40,7 +40,7 @@ html, body {
 }
 body{
     background-color:rgb(224, 208, 238);
-   
+    background-image: linear-gradient(to bottom right, rgb(241, 212, 229), rgb(247, 151, 234));
 }
 
 header{
