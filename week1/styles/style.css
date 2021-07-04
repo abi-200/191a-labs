@@ -46,7 +46,7 @@ body{
     font-size: 15px; /* px means "pixels": the base font size is now 10 pixels high  */
   font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google fonts */
 }
-}
+
 
 header{
     color:rgb(212, 62, 112);
