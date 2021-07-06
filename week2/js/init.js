@@ -39,3 +39,8 @@ addMarker(39,-119,'location 1','random location')
 addMarker(36,-120,'location 2','another random location')
 
 addMarker(43.65,-79.383,'my favorite place','my favorite place!')
+addMarker(13.08268,80.270721,'mom hometown','my favorite place!')
+addMarker(11.922,79.485,'dad hometown','my favorite place!')
+addMarker(20.6027,-105.23372,'best vacation memories','my favorite place!')
+const buttonElement = document.getElementById('btn');
+
