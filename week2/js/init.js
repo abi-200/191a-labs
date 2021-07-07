@@ -32,23 +32,13 @@ function createButtons(lat,lng,title,zoom){
     document.body.appendChild(newButton); //this adds the button to our page.
 }
 
-const abita=2
-let abita2=2;
-abita2=3
-
-function example(num1,num2){
-    let result=num1+num2
-    console.log("total"+result)
-    
-}
 // use our marker functions
-example(1,1)
-example(abita,abita2)
+
 
 
 addMarker(43.65,-79.383,'my favorite place','my favorite place!',10)
 addMarker(13.08268,80.270721,'mom hometown','my favorite place!',5)
 addMarker(11.922,79.485,'dad hometown','my favorite place!',7)
-addMarker(20.6027,-105.23372,'best vacation memories','my favorite place!',1)
+addMarker(20.6027,-105.23372,'best vacation memories','my favorite place!',6)
 const buttonElement = document.getElementById('btn');
 
