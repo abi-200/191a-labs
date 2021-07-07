@@ -13,7 +13,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function addMarker(lat,lng,title,message,zoom){
     console.log(message)
     L.marker([lat,lng]).addTo(myMap).bindPopup(`<h2>${title}</h2>`)
-    createButtons(lat,lng,title,zoom); // new line!!!
+    createButtons(lat,lng,title,zoom); 
     return message
 }
 
@@ -24,13 +24,20 @@ function createButtons(lat,lng,title,zoom){
     newButton.innerHTML = title; // gives the button a title
     newButton.setAttribute("lat",lat); // sets the latitude 
     newButton.setAttribute("lng",lng); // sets the longitude 
+    newButton.style.color="black"
+    newButton.style.backgroundColor="pink"
 
     // attach an event listner to the button with Leaflet's flyTo on our map called "myMap"
     newButton.addEventListener('mouseover', function(){
+        newButton.style.color="white"
+        newButton.style.backgroundColor="black"
         myMap.flyTo([lat,lng], zoom); 
     })
-    document.body.appendChild(newButton); //this adds the button to our page.
+    
+    document.body.appendChild(newButton);
+    document.body.style.backgroundColor='lavender'; //this adds the button to our page.
 }
+
 
 // use our marker functions
 
