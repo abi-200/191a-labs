@@ -9,14 +9,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(myMap);
 
+L.control.scale({metric: true}).addTo(myMap);
 
 // create a function to add markers
 function addMarker(lat,lng,title,message,zoom){
     console.log(message)
     L.marker([lat,lng]).addTo(myMap).bindPopup(`<h2>${title}</h2>`)
-    L.control.scale([lat,lng]).addTo(myMap);
     createButtons(lat,lng,title,zoom); 
-    
     return message
 }
 
@@ -46,7 +45,7 @@ function createButtons(lat,lng,title,zoom){
 // use our marker functions
 
 addMarker(43.65,-79.383,'my favorite place','my favorite place!',10)
-addMarker(13.08268,80.270721,'mom hometown','my favorite place!',5)
-addMarker(11.922,79.485,'dad hometown','my favorite place!',7)
-addMarker(20.6027,-105.23372,'best vacation memories','my favorite place!',6)
+addMarker(13.08268,80.270721,'mom hometown','mom hometown',5)
+addMarker(11.922,79.485,'dad hometown','dad hometown',7)
+addMarker(20.6027,-105.23372,'best vacation memories','best vacation memories',6)
 const buttonElement = document.getElementById('btn');
