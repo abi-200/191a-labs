@@ -49,3 +49,4 @@ addMarker(13.08268,80.270721,'mom hometown','mom hometown',5)
 addMarker(11.922,79.485,'dad hometown','dad hometown',7)
 addMarker(20.6027,-105.23372,'best vacation memories','best vacation memories',6)
 const buttonElement = document.getElementById('btn');
+
