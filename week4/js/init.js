@@ -5,7 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 function addMarker(data){
-        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h3>ethnicity:${data.whatisyourethnicity}</h3>`+ `<h3>location:${data.location}</h3>`)
+        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h3>Ethnicity: ${data.whatisyourethnicity}</h3>`+ `<h3>Location: ${data.location}</h3>`+`<p>English Proficiency Level:${data.whatisyourenglishproficiencylevel}</p>`+`<p>First Language(if not English):${data.whatisyourfirstlanguage}</p>`)
         return data.whatisyourethnicity
 ;}
 
