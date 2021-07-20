@@ -5,25 +5,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 function addMarker(data){
-        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h3>${data.location}</h3>`)
-        return data.location
+        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h3>ethnicity:${data.whatisyourethnicity}</h3>`+ `<h3>location:${data.location}</h3>`)
+        return data.whatisyourethnicity
 ;}
 
-function generatePost(ethnicity = "Indian"){
-        let element = `
-        <h3>Ethnicity: ${ethnicity}</h3>
-        `
-        return element
-}
-
-function addMarker (data){
-        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(
-                generatePost(
-                        ethnicity = data.ethnicity
-                )
-        )
-        return element
-}
 
 let url = "https://spreadsheets.google.com/feeds/list/1DfHpyO4ViSfj9s4sO0-hivn0W9V6w5gz23zle9Oyjjo/ovc1kod/public/values?alt=json"
 
