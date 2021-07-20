@@ -9,9 +9,10 @@ function addMarker(data){
         // these are the names of our fields in the google sheets:
         L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h2>${data.timestamp}</h2>`)
         return data.timestamp
+
 }
 
-let url = "https://spreadsheets.google.com/feeds/list/1zcb1qCxNVT-u-YxE_vQrR57BWtS5Yvce9Spyl1p4Opk/o51owts/public/values?alt=json"
+let url = "https://spreadsheets.google.com/feeds/list/1DfHpyO4ViSfj9s4sO0-hivn0W9V6w5gz23zle9Oyjjo/ovc1kod/public/values?alt=json"
 
 fetch(url)
 	.then(response => {
@@ -25,7 +26,7 @@ fetch(url)
 
 
 function formatData(theData){
-        const formattedData = [] /* this array will eventually be populated with the contents of the spreadsheet's rows */
+        const formattedData = [] 
         const rows = theData.feed.entry
         for(const row of rows) {
           const formattedRow = {}
