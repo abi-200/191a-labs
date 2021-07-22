@@ -1,7 +1,9 @@
 body{
+    background-color: rgb(241, 233, 248);
     display:grid;
     grid-template-columns: 1fr 1fr; /* this creates an even two column layout*/
     grid-template-areas: "mappanel sidepanel" /* this creates one row with map panel on the left and sidepanel on the right */
+
 }
 
 #mapArea{
@@ -10,5 +12,6 @@ body{
 } 
 
 #survey{
+
     grid-area: sidepanel;
 } 

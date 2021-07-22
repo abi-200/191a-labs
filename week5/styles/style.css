@@ -1,0 +1,52 @@
+body{
+    display:grid;
+    background-color: lavender;
+    grid-template-columns: 0.4fr 0.5fr 0.1fr; /* this creates an even two column layout*/
+    grid-template-areas: "sidepanel mappanel"; 
+    grid-template-rows: sidepanel;
+    font-family: fantasy;
+
+    
+}
+
+#mapArea{
+    height:90vh;
+    grid-area: mappanel;
+    grid-template-columns: subgrid;
+   
+} 
+
+#survey{
+    grid-area: sidepanel;
+    background-color: lavender;
+    grid-area: survey;
+    overflow: hidden;
+    /* 16:9 aspect ratio */
+    padding-top: 0%;
+    position: relative;
+    font-family: fantasy;
+    font-style: italic;
+    font-size: 25px;
+} 
+
+#survey iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+ }
+
+#contents{
+    /* this gives the name to our area */
+    grid-area: sidepanel;
+    background-color: lavender;
+
+}
+
+#header{
+    font-size: 35px;
+    font-family: fantasy;
+    background-color: lavender;
+}

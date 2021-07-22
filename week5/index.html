@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic Leaflet Map</title>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="styles/style.css">
+
+        <!-- Leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <!-- Leaflet's JavaScript-->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    </head>
+    
+    <body>
+        <div id="header">Tracing Asian American Discrimination</div>
+        <div id="mapArea"></div>
+        <div id="contents">
+        <div id="survey">Survey</div>    
+        <div id="body">The following is a survey used to track racial microaggressions against the Asian American community from before, during, and after the COVID-19 pandemic.</div>
+        <!-- this is the iframe for our survey -->
+    <iframe 
+    src="https://docs.google.com/forms/d/1rqiZdXPYATw4JmC9eHfrBTBL2Re2qRtFjaE4bRP5ASA/edit#responses"
+    width="640" 
+    height="654" 
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0">
+        Loading…
+    </iframe>
+        </div>
+        <script src="js/init.js"></script>
+    </body>
+</html>
