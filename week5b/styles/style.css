@@ -1,0 +1,29 @@
+body{
+    display: grid;
+    grid-template-columns: 0.8fr 0.2fr; 
+    grid-auto-rows: minmax(5px, auto);
+    grid-template-areas: "header header" "mappanel sidebar";
+    background-color: rgb(230, 255, 240);
+}
+
+header{
+    grid-area: header;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#map{
+    height:100vh;
+    grid-area: mappanel;
+    grid-template-columns: subgrid;
+} 
+
+#contents{
+    grid-area: sidebar;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#survey {
+    grid-column: 2/2;
+}
+

@@ -1,24 +1,40 @@
 const myMap = L.map('mapArea').setView([34.0709, -118.444], 5);
 
+const url = "https://spreadsheets.google.com/feeds/list/1DfHpyO4ViSfj9s4sO0-hivn0W9V6w5gz23zle9Oyjjo/ovc1kod/public/values?alt=json"
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(myMap);
 
-function addMarker(data){
-  L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h3>Ethnicity: ${data.whatisyourethnicity}</h3>`+ `<h3>Location: ${data.location}</h3>`+`<p>English Proficiency Level:${data.whatisyourenglishproficiencylevel}</p>`+`<p>First Language(if not English):${data.whatisyourfirstlanguage}</p>`)
-        return data.whatisyourethnicity
-;}
+fetch(url)
+	.then(response => {
+		return response.json();
+		})
+    .then(data =>{
+                // console.log(data)
+                formatData(data)
+        }
+)
 
+let speakFluentEnglish = L.featureGroup();
+let speakOtherLanguage = L.featureGroup();
 
 function addMarker(data){
-  // console.log(data)
-  // these are the names of our lat/long fields in the google sheets:
-  L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h3>Ethnicity: ${data.whatisyourethnicity}</h3>`+ `<h3>Location: ${data.location}</h3>`+`<p>English Proficiency Level:${data.whatisyourenglishproficiencylevel}</p>`+`<p>First Language(if not English):${data.whatisyourfirstlanguage}</p>`)
-  // adding our create button function
-  createButtons(data.lat,data.lng,data.location)
-  return data.timestamp
+    if(data.isenglishyourfirstlanguage== "Yes"){
+        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h2>English is a first language</h2>`)
+        createButtons(data.lat,data.lng,data.location)
+    }
+    else{
+        speakOtherLanguage.addLayer(L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h2>English is not the first language</h2>`))
+        createButtons(data.lat,data.lng,data.location)   
+        // Bonus:    
+        // speakOtherLanguage += 1
+    }
+    return data.timestamp
 }
-
+// let speakOtherLanguage = 0
+//window.onload = function afterWebPageLoad() { 
+    //document.body.append("Number of hidden records:"+speakOtherLanguage)
 
 
 function createButtons(lat,lng,title){
@@ -41,22 +57,8 @@ newButton.addEventListener('mouseover', function(){
 }
 
 
-
-let url = "https://spreadsheets.google.com/feeds/list/1DfHpyO4ViSfj9s4sO0-hivn0W9V6w5gz23zle9Oyjjo/ovc1kod/public/values?alt=json"
-
-fetch(url)
-	.then(response => {
-		return response.json();
-		})
-    .then(data =>{
-                // console.log(data)
-                formatData(data)
-        }
-)
-
-
 function formatData(theData){
-        const formattedData = [] /* this array will eventually be populated with the contents of the spreadsheet's rows */
+        const formattedData = []
         const rows = theData.feed.entry
         for(const row of rows) {
           const formattedRow = {}
