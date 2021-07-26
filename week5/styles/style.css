@@ -1,11 +1,14 @@
 body{
     display:grid;
     background-color: lavender;
-    grid-auto-columns: 50% 50% 20%;
+    grid-auto-columns: 50% 50% 0%;
+   
+   
     grid-template-areas: "mappanel sidepanel header"; 
-    grid-template-rows: sidepanel;
+    grid-template-rows: 30vw 30vw 20vw;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0.5%;
+    margin-top: 0.5%;
+    margin-right: 1%;
 
     
 }
@@ -19,6 +22,7 @@ body{
     grid-template-columns: subgrid;
     grid-column-start: 1;
   grid-column-end: 1;
+  grid-column-gap: 50px;
    
 } 
 #header{
@@ -33,15 +37,14 @@ body{
     grid-area: sidepanel;
     background-color: lavender;
     grid-area: survey;
-    overflow: hidden;
-    /* 16:9 aspect ratio */
+    overflow:visible;
     padding-top: 0%;
     position: relative;
     font-family:monospace;
     font-style: italic;
     font-size: 25px;
     grid-column-start: 3;
-  grid-column-end: 3;
+    grid-column-end: 3;
     
 } 
 
