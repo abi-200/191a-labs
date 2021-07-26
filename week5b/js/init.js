@@ -26,11 +26,15 @@ fetch(url)
 let Englishfirstlang = L.featureGroup();
 let Englishnotfirst = L.featureGroup();
 
+let Englishprof = L.featureGroup();
+let Englishprof1 = L.featureGroup();
+
+
 let circleOptions = {
-  radius: 4,
-  fillColor: "#ff7800",
-  color: "#000",
-  weight: 1,
+  radius: 10,
+  fillColor: "purple",
+  color: "pink",
+  weight: 2,
   opacity: 1,
   fillOpacity: 0.8
 }
@@ -42,15 +46,17 @@ function addMarker(data){
         createButtons(data.lat,data.lng,data.location)
     }
     else{
+      circleOptions.fillColor = "red"
         Englishnotfirst.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>English is not the first language</h2>`))
-        createButtons(data.lat,data.lng,data.location)   
-        
+        createButtons(data.lat,data.lng,data.location)    
     }
+    
     return data.timestamp
+    
+
 }
-// let speakOtherLanguage = 0
-//window.onload = function afterWebPageLoad() { 
-    //document.body.append("Number of hidden records:"+speakOtherLanguage)
+
+
 
 
 function createButtons(lat,lng,title){
@@ -66,7 +72,9 @@ const spaceForButtons = document.getElementById('contents')
 spaceForButtons.appendChild(newButton);//this adds the button to our page.
 newButton.addEventListener('mouseover', function(){
   newButton.style.color="lavender"
-  newButton.style.backgroundColor="black"
+  newButton.style.backgroundColor="purple"
+  newButton.style.fontFamily="monospace"
+  newButton.style.fontSize = 40%
   myMap.flyTo([lat,lng]);    
 })
 
@@ -89,4 +97,15 @@ function formatData(theData){
         formattedData.forEach(addMarker)       
         Englishfirstlang.addTo(myMap) // add our layers after markers have been made
         Englishnotfirst.addTo(myMap) // add our layers after markers have been made  
+        let layers = {
+          "English first language": Englishfirstlang,
+          "English not first language": Englishnotfirst,
+          "Fluent in English": Englishprof,
+          "Not fluent in English": Englishprof1
+          
+        }
+        L.control.layers(null,layers).addTo(myMap)
+        
+        let allLayers = L.featureGroup([Englishfirstlang,Englishnotfirst,Englishprof,Englishprof1]);
+        myMap.fitBounds(allLayers.getBounds());     
 } 
