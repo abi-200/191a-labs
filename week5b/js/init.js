@@ -2,6 +2,13 @@ const myMap = L.map('mapArea').setView([34.0709, -118.444], 5);
 
 const url = "https://spreadsheets.google.com/feeds/list/1DfHpyO4ViSfj9s4sO0-hivn0W9V6w5gz23zle9Oyjjo/ovc1kod/public/values?alt=json"
 
+let Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
+	attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	apikey: '<your apikey>',
+	maxZoom: 22
+});
+
+Thunderforest_OpenCycleMap.addTo(myMap);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(myMap);
@@ -16,19 +23,28 @@ fetch(url)
         }
 )
 
-let speakFluentEnglish = L.featureGroup();
-let speakOtherLanguage = L.featureGroup();
+let Englishfirstlang = L.featureGroup();
+let Englishnotfirst = L.featureGroup();
+
+let circleOptions = {
+  radius: 4,
+  fillColor: "#ff7800",
+  color: "#000",
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8
+}
 
 function addMarker(data){
     if(data.isenglishyourfirstlanguage== "Yes"){
-        L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h2>English is a first language</h2>`)
+      circleOptions.fillColor = "purple"
+        Englishfirstlang.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>English is a first language</h2>`))
         createButtons(data.lat,data.lng,data.location)
     }
     else{
-        speakOtherLanguage.addLayer(L.marker([data.lat,data.lng]).addTo(myMap).bindPopup(`<h2>English is not the first language</h2>`))
+        Englishnotfirst.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>English is not the first language</h2>`))
         createButtons(data.lat,data.lng,data.location)   
-        // Bonus:    
-        // speakOtherLanguage += 1
+        
     }
     return data.timestamp
 }
@@ -70,5 +86,7 @@ function formatData(theData){
           formattedData.push(formattedRow)
         }
         console.log(formattedData)
-        formattedData.forEach(addMarker)        
-}
+        formattedData.forEach(addMarker)       
+        Englishfirstlang.addTo(myMap) // add our layers after markers have been made
+        Englishnotfirst.addTo(myMap) // add our layers after markers have been made  
+} 
