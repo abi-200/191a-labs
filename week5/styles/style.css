@@ -1,20 +1,24 @@
 body{
     display:grid;
     background-color: lavender;
-    grid-auto-columns: 60% 40% 0%;
-    grid-template-areas: "mappanel sidepanel"; 
+    grid-auto-columns: 50% 50% 20%;
+    grid-template-areas: "mappanel sidepanel header"; 
     grid-template-rows: sidepanel;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0%;
+    margin: 0.5%;
 
     
 }
-
+#grid{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+}
 #mapArea{
-    height:90vh;
+    height:100vh;
     grid-area: mappanel;
     grid-template-columns: subgrid;
-    
+    grid-column-start: 1;
+  grid-column-end: 1;
    
 } 
 #header{
@@ -36,6 +40,8 @@ body{
     font-family:monospace;
     font-style: italic;
     font-size: 25px;
+    grid-column-start: 3;
+  grid-column-end: 3;
     
 } 
 
