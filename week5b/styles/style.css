@@ -4,6 +4,7 @@ body{
     grid-auto-rows: minmax(5px, auto);
     grid-template-areas: "header header" "mappanel sidebar";
     background-color: lavender;
+    margin-right: 1px;
 }
 
 header{
@@ -11,6 +12,7 @@ header{
     grid-area: header;
     font-family: fantasy;
     font-size: 20px;
+    margin-block-end: 1pc;
 }
 
 #map{
