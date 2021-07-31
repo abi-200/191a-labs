@@ -36,9 +36,9 @@ let circleOptions = {
 }
 
 function addMarker(data){
-    if(data.isenglishyourfirstlanguage== "Yes"){
+    if(data.whatdifficultiesdoyoufacewhenchoosingtoreportortalkaboutracialdiscriminiationfacedbyyouandoryourcommunityinbothaformalorinformalsetting== ""){
       circleOptions.fillColor = "purple"
-        Englishfirstlang.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>English is a first language</h2>`))
+        Englishfirstlang.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>E</h2>`))
         createButtons(data.lat,data.lng,data.location)
     }
     else{

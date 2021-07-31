@@ -1,0 +1,51 @@
+body{
+    display:grid;
+    grid-template-columns: 1fr 1fr; /* this creates an even two column layout*/
+    grid-template-areas: "mappanel sidepanel controlpanel linkpanel";
+    background-image: linear-gradient(to bottom right, rgb(153, 204, 233), rgb(250, 242, 168));
+}
+
+#mapArea{
+    height:150vh;
+    width: 100vh;
+    grid-area: mappanel; 
+} 
+
+#survey{
+    grid-area: sidepanel;
+} 
+
+#buttonrandom{
+    grid-area: controlpanel;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height:200px;
+    width:200px;
+    position: relative;
+}
+
+#link1{
+    grid-area: linkpanel;
+    background-color: #6a42aa; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    height:200px;
+    width:200px;
+    position: relative;
+    white-space: normal;
+}
+#buttonsurvey{
+    font-family: Arial, Helvetica, sans-serif;
+}
